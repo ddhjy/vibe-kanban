@@ -115,7 +115,9 @@ async fn main() -> Result<(), VibeKanbanError> {
 
     tracing::info!("Server running on http://{host}:{actual_port}");
 
-    if !cfg!(debug_assertions) {
+    // Skip opening browser if DISABLE_BROWSER_OPEN is set (e.g., in Tauri app)
+    let disable_browser = std::env::var("DISABLE_BROWSER_OPEN").is_ok();
+    if !cfg!(debug_assertions) && !disable_browser {
         tracing::info!("Opening browser...");
         tokio::spawn(async move {
             if let Err(e) = open_browser(&format!("http://127.0.0.1:{actual_port}")).await {

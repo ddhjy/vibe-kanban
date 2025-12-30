@@ -30,9 +30,12 @@
     "prepack": "npm run build:npx",
     "remote:dev": "cd crates/remote && docker compose --env-file .env.remote up --build ; docker compose down -v",
     "remote:prepare-db": "cd crates/remote && bash scripts/prepare-db.sh",
-    "remote:prepare-db:check": "cd crates/remote && bash scripts/prepare-db.sh --check"
+    "remote:prepare-db:check": "cd crates/remote && bash scripts/prepare-db.sh --check",
+    "tauri:dev": "npx @tauri-apps/cli dev",
+    "tauri:build": "npx @tauri-apps/cli build"
   },
   "devDependencies": {
+    "@tauri-apps/cli": "^2.9.6",
     "concurrently": "^8.2.2",
     "vite": "^6.3.5"
   },

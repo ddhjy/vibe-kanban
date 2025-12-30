@@ -1,0 +1,12 @@
+{
+    "identifier": "default",
+    "description": "Default capability for Vibe Kanban",
+    "windows": [
+        "main"
+    ],
+    "permissions": [
+        "core:default",
+        "shell:allow-spawn",
+        "shell:allow-execute"
+    ]
+}
